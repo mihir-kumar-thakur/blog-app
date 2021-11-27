@@ -6,6 +6,8 @@ Rails.application.routes.draw do
           sessions: "api/v1/sessions",
           registrations: "api/v1/registrations"
         }
+
+      resources :posts
     end
   end
 end
