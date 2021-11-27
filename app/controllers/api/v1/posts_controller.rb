@@ -11,7 +11,6 @@ module Api
       end
 
       def show
-        render json: @post
       end
 
       def create
