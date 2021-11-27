@@ -3,6 +3,8 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate_user
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   private
 
   def authenticate_user
@@ -25,5 +27,9 @@ class ApplicationController < ActionController::API
 
   def signed_in?
     @current_user_id.present?
+  end
+
+  def record_not_found(e)
+    render json: { error: e.to_s }, status: :bad_request
   end
 end

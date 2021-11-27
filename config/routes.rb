@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       }
 
       resources :posts do
-        resources :comments
+        post :like, to: "likes#like_on_post"
+        resources :comments do
+          post :like, to: "likes#like_on_comment"
+        end
       end
     end
   end
