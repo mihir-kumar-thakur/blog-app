@@ -8,6 +8,8 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_user
+    return if request.headers['Authorization'].blank?
+
     begin
       jwt_payload = JWT.decode(request.headers['Authorization'], Rails.application.secrets.secret_key_base).first
 
