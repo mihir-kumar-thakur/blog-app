@@ -30,7 +30,7 @@ This app can do following things :-
 
 
 
-    ##  Sign Up User
+##  Sign Up User
     curl --location --request POST 'http://localhost:3000/api/v1/users' \
 
     --header 'Content-Type: application/json' \
